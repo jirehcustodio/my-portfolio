@@ -1,9 +1,12 @@
 import "../Styles/Global.css";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "My Portfolio",
-  description: "Personal portfolio built with Next.js",
+  title: "Jireh Custodio · Portfolio",
+  description: "Clean, minimalist portfolio with smooth animations.",
 };
 
 export default function RootLayout({
@@ -13,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.className} bg-[#F8F8F8] text-[#222222] antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
