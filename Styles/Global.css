@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #222222;
+  --color-secondary: #7B7B7B;
+  --color-tertiary: #F8F8F8;
+  --color-white: #FFFFFF;
+}
+
+/* Base typographic rhythm and sensible defaults */
+html, body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--color-primary);
+  background: var(--color-tertiary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hero / brochure layout helpers */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-left {
+  padding-right: 1rem;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* Magazine-style portrait card */
+.magazine-card {
+  width: 22rem;
+  height: 34rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(34,34,34,0.08), 0 2px 6px rgba(34,34,34,0.04);
+  background: var(--color-tertiary);
+  position: relative;
+  display: block;
+}
+
+.magazine-card img,
+.magazine-card .next-image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: filter 420ms ease, transform 420ms ease;
+  filter: grayscale(100%) contrast(0.98) saturate(0.6);
+}
+
+.magazine-card:hover img,
+.magazine-card:hover .next-image {
+  filter: none;
+  transform: scale(1.02);
+}
+
+/* Cards & stats */
+.stat-card {
+  border-radius: 1rem;
+  background: var(--color-white);
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(34,34,34,0.04);
+  border: 1px solid rgba(34,34,34,0.04);
+}
+
+/* Buttons */
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(34,34,34,0.06);
+  color: var(--color-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+}
+
+.btn-solid {
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.6rem 1rem;
+  border-radius: 0.75rem;
+}
+
+/* Intro overlay: glassmorphism and transitions */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px) saturate(0.9);
+  -webkit-backdrop-filter: blur(8px) saturate(0.9);
+  z-index: 60;
+  transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+}
+
+.intro-overlay[data-hide="true"] {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(1.02);
+}
+
+.intro-card {
+  text-align: center;
+  padding: 2.25rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 30px 60px rgba(34,34,34,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(248,248,248,0.7));
+  border: 1px solid rgba(34,34,34,0.04);
+}
+
+/* Subtle keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(.98); opacity: 0; filter: blur(2px); }
+  to { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+
+.animate-zoomIn { animation: zoomIn .7s cubic-bezier(.2,.9,.2,1) both; }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .magazine-card { width: 18rem; height: 24rem; }
+  .hero-container { grid-template-columns: 1fr; }
+  .hero-right { justify-content: center; }
+}

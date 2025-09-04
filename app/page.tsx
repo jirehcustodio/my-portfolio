@@ -35,28 +35,30 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center px-6 pt-28 pb-16">
-          <div className="[animation:zoomIn_.8s_ease-out_both]">
-            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6 pt-28 pb-16">
+          {/* Left: Headline and intro */}
+          <div className="flex flex-col justify-center [animation:zoomIn_.8s_ease-out_both]">
+            <h1 className="text-4xl sm:text-6xl font-extrabold leading-tight mb-6">
               Engr. Jireh B. Custodio, CCSA
             </h1>
-            <p className="mt-5 text-lg text-[#7B7B7B] max-w-prose">
+            <p className="mb-8 text-lg text-[#7B7B7B] max-w-prose">
               I turn complex problems into elegant, human-centered solutions—
               with a minimalist approach and smooth, intentional motion.
             </p>
-            <div className="mt-8 flex gap-3">
+            <div className="flex gap-3">
               <a className="rounded-xl bg-[#222222] text-white px-5 py-3 text-sm shadow hover:opacity-90 transition" href="#projects">View Projects</a>
               <a className="rounded-xl border border-black/10 px-5 py-3 text-sm hover:bg-black/[.03] transition" href="#about">About Me</a>
             </div>
           </div>
 
-          <div className="justify-self-center">
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl shadow-lg overflow-hidden ring-1 ring-black/5">
+          {/* Right: Portrait image, magazine/brochure style */}
+          <div className="flex justify-end items-center">
+            <div className="relative w-72 h-96 sm:w-96 sm:h-[28rem] rounded-3xl shadow-xl overflow-hidden ring-1 ring-black/5 bg-[#F8F8F8] flex items-end">
               <Image
                 src="/Me.png"
                 alt="Portrait of Jireh Custodio"
                 fill
-                sizes="(max-width: 768px) 320px, 400px"
+                sizes="(max-width: 768px) 288px, 384px"
                 className="object-cover grayscale hover:grayscale-0 transition duration-500 ease-out"
                 priority
               />
